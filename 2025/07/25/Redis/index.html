@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Schropim">
+    
+    <title>
+        
+            Redis |
+        
+        Schropim&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"dingchenzhu.github.io","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"Schropim's Blog","author":"Schropim","avatar":"/images/avatar.jpg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories"},"first_screen":{"enable":true,"background_img":"/images/sea.jpg","background_img_dark":"/images/sea.jpg","description":null,"hitokoto":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/DingchenZhu","weixin":"zdcy0817","qq":"1765735207","weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"1765735207@qq.com"}},"scroll":{"progress_bar":false,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true,"share":true,"reward":{"enable":false,"img_link":null,"text":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Schropim&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Redis
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Schropim</span>
+                                
+                                    <span class="author-badge">Lv1</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-07-25 17:15:22</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Sun Jul 27 2025 20:17:51 GMT+0800">2025-07-27 20:17:51</span>
+                </span>
+            
+        
+
+        
+
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>3k Words</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>11 Mins</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="Redis基础"><a href="#Redis基础" class="headerlink" title="Redis基础"></a>Redis基础</h2><h3 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h3><p><strong>非关系型数据库</strong>，数据之间没有关系，数据之间没有关系，也就没有耦合性，非常容易扩展，自由灵活，半结构化数据，没有耦合性，方便扩展，数据量大，性能高，成本低，但是没有操作接口，没有标准，没有官方支持，没有通用API，学习和使用成本较高，没有官方支持，没有表的概念，数据结构单一，但是数据操作复杂，数据完全在内存中，支持持久化<br>背景：<strong>高并发，超大数据量，海量数据的高效率存储和访问，高可扩展性和高可用性</strong><br><strong>把数据放在内存中，通过异步的方式将数据写入到硬盘</strong>，IO操作是昂贵的，内存比硬盘快10万倍<br><strong>分类</strong>：</p>
+<ol>
+<li>键值对数据库：Redis，Memcached</li>
+<li>列存储数据库：HBase</li>
+<li>文档型数据库：MongoDB</li>
+<li>图形数据库：Neo4j</li>
+</ol>
+<h3 id="Redis-1"><a href="#Redis-1" class="headerlink" title="Redis"></a>Redis</h3><p><strong>Redis</strong>：Remote Dictionary Server，开源的、使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、<strong>Key-Value数据库</strong>，并提供多种语言的API，是跨平台的非关系型数据库</p>
+<p>优点：高并发读写，单线程操作<br>缺点：ACID处理太简单，只能保证最终一致性，而且不支持回滚</p>
+<p>Redis6之后是多队列，多线程，但是多线程只是用来处理网络数据的读写和协议解析，执行命令仍然是单线程顺序执行<br>为什么不使用多线程？</p>
+<ol>
+<li>多线程操作需要保证原子性，但是<strong>Redis是单线程模型，操作都是原子性的</strong></li>
+<li><strong>Redis的性能瓶颈不在CPU，而在内存和网络</strong></li>
+<li>Redis的瓶颈主要在网络IO，<strong>单线程可以避免频繁的上下文切换，多线程会增加CPU的消耗</strong></li>
+<li>Redis的IO多路复用，多线程模型下，对于多个socket，IO多路复用只有一个线程，但是多个线程都可以去抢这个锁，对性能有影响</li>
+<li>Redis利用队列技术将<strong>并发访问变为串行访问，消除了线程竞争，也不存在加锁释放锁的操作，降低了开发难度，降低了开发成本</strong></li>
+</ol>
+<p>Redis的Session共享：</p>
+<ol>
+<li>Session共享：只要保证多个应用共享同一个Session数据即可，包括共享Session数据的目的，Sessionid、Session的生命周期、Session如何实现共享</li>
+<li>Session共享就是通过集群，Redis实现共享</li>
+<li>Session共享的解决方案：<ol>
+<li>通过Nginx负载均衡，服务器A保存Session，服务器B没有，用户跳转到服务器B时，需要重新登录</li>
+<li>通过Tomcat的Session复制，每台服务器都保存Session，每台服务器都有所有Session的拷贝，一台宕机，其他服务器可以继续工作，但是性能开销大</li>
+<li>通过Tomcat的Session集中管理，每台服务器都从Redis获取Session，每台服务器都从Redis获取Session，一台宕机，其他服务器可以继续工作，性能开销大</li>
+<li>通过Session粘滞，每台服务器保存自己的Session，用户每次请求都跳转到同一台服务器，一台宕机，其他服务器可以继续工作，但是性能开销大</li>
+</ol>
+</li>
+</ol>
+<p>登陆缓存：<br>使用String：侧重于查，对象转换为json字符串，使用String存储<br>使用Hash：侧重于改，使用Hash存储</p>
+<p>常用命令：</p>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">set key value</span><br><span class="line">get key</span><br><span class="line">del key</span><br><span class="line">setex key seconds value</span><br><span class="line">setnx key value</span><br><span class="line">ttl key</span><br><span class="line">incr key</span><br><span class="line">decr key</span><br><span class="line">incrby key increment</span><br><span class="line">mset k1 v1 k2 v2</span><br><span class="line">mget k1 k2</span><br><span class="line">append key value</span><br><span class="line">setrange key offset value</span><br></pre></td></tr></table></figure>
+<h4 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hset key field value</span><br><span class="line">hget key field</span><br><span class="line">hexists key field</span><br><span class="line">hdel key field</span><br><span class="line">hincrby key field increment</span><br><span class="line">hlen key</span><br><span class="line">hkeys key</span><br><span class="line">hvals key</span><br><span class="line">hgetall key</span><br></pre></td></tr></table></figure>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpush key value </span><br><span class="line">rpop key</span><br><span class="line">lrange key start stop  (0 -1)</span><br><span class="line">ltrim key start stop</span><br></pre></td></tr></table></figure>
+<h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sadd key member</span><br><span class="line">smembers key</span><br><span class="line">srem key member</span><br><span class="line">spop key count</span><br><span class="line"></span><br><span class="line">sdiff key1 key2</span><br><span class="line">sdiffstore destination key1 key2</span><br><span class="line">sinter key1 key2</span><br><span class="line">sunion key1 key2</span><br></pre></td></tr></table></figure>
+<h4 id="Sorted-Set"><a href="#Sorted-Set" class="headerlink" title="Sorted Set"></a>Sorted Set</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">zadd key score member</span><br><span class="line">zrange key start stop</span><br><span class="line">zrevrange key start stop</span><br><span class="line">zincrby key increment member</span><br><span class="line">zrank key member</span><br><span class="line">zrevrank key member</span><br><span class="line">zcard key </span><br></pre></td></tr></table></figure>
+<h4 id="Global"><a href="#Global" class="headerlink" title="Global"></a>Global</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">keys pattern</span><br><span class="line">expire key seconds</span><br><span class="line">persist key</span><br><span class="line">select index</span><br><span class="line">move key db</span><br><span class="line">flushdb</span><br></pre></td></tr></table></figure>
+
+<p>思考：</p>
+<ul>
+<li>什么时候使用Redis？需要缓存数据</li>
+<li>如何设计key-value？需要排序，使用Sorted Set，不需要排序，使用String （存任何数据类型，从Redis取出来的都是Objects类型）</li>
+<li>事务：Redis的事务没有隔离级别的概念，Redis的事务是原子性的操作，要么全部成功，要么全部失败：开始事务、命令入队、执行事务</li>
+<li></li>
+</ul>
+<h2 id="Redis的面试题"><a href="#Redis的面试题" class="headerlink" title="Redis的面试题"></a>Redis的面试题</h2><h3 id="Redis的线程模型"><a href="#Redis的线程模型" class="headerlink" title="Redis的线程模型"></a>Redis的线程模型</h3><h3 id="Redis的持久化机制"><a href="#Redis的持久化机制" class="headerlink" title="Redis的持久化机制"></a>Redis的持久化机制</h3><p>Redis不定时将数据写入磁盘，或者将数据追加到文件中，持久化策略：RDB、AOF，Redis启动时，会提前加载硬盘数据到内存中</p>
+<ol>
+<li><strong>RDB</strong>：Redis DataBase，Redis默认的持久化机制，将内存中的数据以快照的方式写入到二进制文件中，默认的文件名为dump.rdb，RDB持久化可以在指定的时间间隔内生成数据集的时间点快照（数据丢失，版本不兼容）<br><strong>触发机制</strong>：<br>save：阻塞当前Redis服务器，直到RDB文件被创建完毕<br>bgsave：Redis会fork一个子进程来创建RDB文件，阻塞只发生在fork阶段，很快，RDB持久化保存了某个时间点的数据集，是一个非常紧凑的单一文件，Redis可以自动载入RDB文件，Redis载入RDB文件时，将文件中的数据保存到内存中，载入期间，Redis不能处理其他命令，载入期间，Redis会一直处于阻塞状态，直到载入完成，RDB文件是经过压缩的二进制文件，所以占用的空间会小于内存中的数据，更适合做备份，RDB在恢复大数据集时的速度比AOF的恢复速度要快，RDB会丢失最后一次持久化之后的数据，如果数据对于丢失不是很敏感，那么可以1天或者更久进行持久化一次，通过配置文件中的save参数来定义<br>save m n：m是时间间隔，n是m时间内key的变化数量，save “”，禁用RDB持久化</li>
+<li>AOF：Append Only File，将Redis执行的每次写命令追加到文件中，AOF持久化以日志的形式记录服务器所处理的每一个写、删除操作，查询操作不会记录，以文本的方式记录，可以打开文件看到详细的操作记录，命令写入，append，AOF缓冲，sync，AOF文件，rewrite。。。（体积大，持久化性能相较于RDB更慢）策略：<br>appendfsync always，每次有数据修改发生时都会写入AOF文件，这样会严重降低Redis的速度，<br>appendfsync everysec，每秒钟同步一次，该策略为AOF的缺省策略，<br>appendfsync no，从不同步，高效但是数据不会被持久化，<strong>Redis重启时会丢失数据，AOF文件会越来越大，Redis可以自动优化AOF文件</strong></li>
+<li>混合持久化：Redis4.0之后新增的持久化机制，混合持久化是结合了RDB和AOF的优点，在一定程度上结合了两者的优点，混合持久化同样也是通过快照方式来提高RDB的效率，在Redis4.0之后，AOF文件加载时，优先加载AOF文件，当AOF文件加载失败，会尝试加载RDB文件，加载成功，Redis重启加载AOF文件恢复数据，加载失败，Redis重启加载RDB文件恢复数据</li>
+</ol>
+<h3 id="Redis的过期策略"><a href="#Redis的过期策略" class="headerlink" title="Redis的过期策略"></a>Redis的过期策略</h3><p>惰性删除：只有当访问一个key时，才会判断该key是否过期，过期则删除，不删除，一直占用内存<br>定期删除：每隔一段时间，主动地删除过期key，但是不会全盘扫描，随机抽取一部分key进行检查，判断是否过期，过期则删除，不删除，一直占用内存<br>定时删除：为每个key设置过期时间，时间一到，立即删除，但是会占用大量CPU时间，影响性能</p>
+<p>实际使用：惰性删除和定期删除配合使用，Redis默认是定期删除+惰性删除，在合理使用CPU和避免浪费内存之间取得平衡</p>
+<h3 id="Redis的缓存淘汰策略"><a href="#Redis的缓存淘汰策略" class="headerlink" title="Redis的缓存淘汰策略"></a>Redis的缓存淘汰策略</h3><p>LFU：Least Frequently Used，最不经常使用，如果数据过去被使用得更频繁，那么将来被使用也更频繁，淘汰一定时间内被使用次数最少的数据<br>TTL：Time To Live，设置过期时间，Redis的过期策略：定期删除、惰性删除<br>随机删除：Redis每秒会从库中随机选择一些key，删除过期的key，如果过期key比较多，Redis会优先删除过期时间比较早的key<br>8种：volatile，allkeys</p>
+<h3 id="Redis的集群模式"><a href="#Redis的集群模式" class="headerlink" title="Redis的集群模式"></a>Redis的集群模式</h3><h3 id="Redis的分布式锁"><a href="#Redis的分布式锁" class="headerlink" title="Redis的分布式锁"></a>Redis的分布式锁</h3><p>加锁：setnx，设置过期时间，防止死锁<br>执行业务：<br>解锁：del，防止误删</p>
+<h3 id="Redis的缓存穿透、缓存击穿、缓存雪崩"><a href="#Redis的缓存穿透、缓存击穿、缓存雪崩" class="headerlink" title="Redis的缓存穿透、缓存击穿、缓存雪崩"></a>Redis的缓存穿透、缓存击穿、缓存雪崩</h3><p>缓存穿透：查询一个一定不存在的数据，由于缓存是不命中，将去查询数据库，查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要去数据库查询，造成缓存穿透，解决：布隆过滤器，参数校验，缓存空值<br>缓存击穿：某个key非常热点，访问非常频繁，处于集中式高并发访问的情况，当这个key在失效的瞬间，大量的请求就击穿了缓存，直接请求数据库，导致数据库宕机，解决：设置热点数据永不过期，加互斥锁（双重检查DCL：进入同步之前要再查询一次，防止上一个抢到锁的线程更新了），使用分布式锁，使用Redis的setnx，使用Lua脚本<br>缓存雪崩：设置缓存时采用了相同的过期时间，导致缓存在某一时刻同时失效，请求全部转发到DB，DB瞬时压力过重雪崩，解决：设置过期时间时加上一个随机值</p>
+<h3 id="Redis的布隆过滤器"><a href="#Redis的布隆过滤器" class="headerlink" title="Redis的布隆过滤器"></a>Redis的布隆过滤器</h3><p>布隆过滤器：一个很长的二进制向量（位图）和一系列随机映射函数，布隆过滤器可以用于检索一个元素是否在一个集合中，优点：空间效率和查询时间都远远超过一般的算法，缺点：有一定的误识别率和删除困难，布隆过滤器可以用于解决缓存穿透问题，布隆过滤器是一个位图，位图中的每一个bit都只占一个bit</p>
+<h3 id="Redis的哨兵模式"><a href="#Redis的哨兵模式" class="headerlink" title="Redis的哨兵模式"></a>Redis的哨兵模式</h3><p>哨兵模式：Redis的哨兵模式是Redis的高可用架构，哨兵模式是一种特殊的模式，首先Redis提供了哨兵的命令，哨兵是一个独立的进程，作为进程，它会独立运行，其原理是哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例，哨兵有两个作用：通过发送命令，让Redis服务器返回监控其运行状态，当哨兵监测到master宕机，会自动将slave切换成master，然后通过发布订阅模式通知其他的从服务器，修改配置文件，让它们切换主机</p>
+<h3 id="Redis的发布订阅"><a href="#Redis的发布订阅" class="headerlink" title="Redis的发布订阅"></a>Redis的发布订阅</h3><h3 id="Redis的Pipeline"><a href="#Redis的Pipeline" class="headerlink" title="Redis的Pipeline"></a>Redis的Pipeline</h3><h3 id="Redis的Bitmap"><a href="#Redis的Bitmap" class="headerlink" title="Redis的Bitmap"></a>Redis的Bitmap</h3><p>什么是bitmap：位图，bitmap就是用一个bit位来表示某个元素对应的值或者状态，从而进行统计，判断，去重，查找等操作，Redis的bitmap位图，是string数据结构的一种扩展，位图不是特殊的数据结构，它的内容其实就是普通的二进制字符串，也就是byte数组，使用位图可以用来实现布隆过滤器</p>
+<h3 id="Redis的HyperLogLog"><a href="#Redis的HyperLogLog" class="headerlink" title="Redis的HyperLogLog"></a>Redis的HyperLogLog</h3><h3 id="Redis的Geo"><a href="#Redis的Geo" class="headerlink" title="Redis的Geo"></a>Redis的Geo</h3><h3 id="Redis的Stream"><a href="#Redis的Stream" class="headerlink" title="Redis的Stream"></a>Redis的Stream</h3><h3 id="Redis的慢查询"><a href="#Redis的慢查询" class="headerlink" title="Redis的慢查询"></a>Redis的慢查询</h3><p>慢查询：记录执行时间超过某个阈值（默认10毫秒）的SQL语句，慢查询日志就是记录这些SQL语句，慢查询日志可以帮助我们定位执行缓慢的SQL语句，从而进行优化，慢查询日志默认是关闭的，可以通过slowlog-log-slower-than来设置，slowlog-log-slower-than就是用来设置慢查询的时间阈值，slowlog-max-len用来设置慢查询日志最多存储多少条，slowlog-max-len默认是128，slowlog-max-len可以用来限制慢查询日志最多存储多少条</p>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                Redis
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2025/07/25/Redis/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">Schropim</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2025-07-25 17:15</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/07/01/rust-for-rcore/"
+                                   title="rust_for_rcore"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">rust_for_rcore</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E5%9F%BA%E7%A1%80"><span class="nav-text">Redis基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSQL"><span class="nav-text">NoSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-1"><span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-text">String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash"><span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-text">List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set"><span class="nav-text">Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sorted-Set"><span class="nav-text">Sorted Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Global"><span class="nav-text">Global</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="nav-text">Redis的面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-text">Redis的线程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6"><span class="nav-text">Redis的持久化机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E8%BF%87%E6%9C%9F%E7%AD%96%E7%95%A5"><span class="nav-text">Redis的过期策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5"><span class="nav-text">Redis的缓存淘汰策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F"><span class="nav-text">Redis的集群模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="nav-text">Redis的分布式锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="nav-text">Redis的缓存穿透、缓存击穿、缓存雪崩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-text">Redis的布隆过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F"><span class="nav-text">Redis的哨兵模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="nav-text">Redis的发布订阅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84Pipeline"><span class="nav-text">Redis的Pipeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84Bitmap"><span class="nav-text">Redis的Bitmap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84HyperLogLog"><span class="nav-text">Redis的HyperLogLog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84Geo"><span class="nav-text">Redis的Geo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84Stream"><span class="nav-text">Redis的Stream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E6%85%A2%E6%9F%A5%E8%AF%A2"><span class="nav-text">Redis的慢查询</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Schropim</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E5%9F%BA%E7%A1%80"><span class="nav-text">Redis基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSQL"><span class="nav-text">NoSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-1"><span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-text">String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash"><span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-text">List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set"><span class="nav-text">Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sorted-Set"><span class="nav-text">Sorted Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Global"><span class="nav-text">Global</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="nav-text">Redis的面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-text">Redis的线程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6"><span class="nav-text">Redis的持久化机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E8%BF%87%E6%9C%9F%E7%AD%96%E7%95%A5"><span class="nav-text">Redis的过期策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5"><span class="nav-text">Redis的缓存淘汰策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F"><span class="nav-text">Redis的集群模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="nav-text">Redis的分布式锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="nav-text">Redis的缓存穿透、缓存击穿、缓存雪崩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-text">Redis的布隆过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F"><span class="nav-text">Redis的哨兵模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="nav-text">Redis的发布订阅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84Pipeline"><span class="nav-text">Redis的Pipeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84Bitmap"><span class="nav-text">Redis的Bitmap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84HyperLogLog"><span class="nav-text">Redis的HyperLogLog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84Geo"><span class="nav-text">Redis的Geo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84Stream"><span class="nav-text">Redis的Stream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E7%9A%84%E6%85%A2%E6%9F%A5%E8%AF%A2"><span class="nav-text">Redis的慢查询</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/js/post/copyright-info.js"></script>
+
+        
+
+        <!-- share -->
+        
+            
+<script src="/js/post/share.js"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
